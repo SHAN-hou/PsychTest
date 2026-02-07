@@ -2,8 +2,11 @@ name: Build & Release APK
 
 on:
   push:
+    branches: [ main ]
     tags:
       - 'v*'
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
@@ -18,15 +21,30 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: gradle
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Generate Gradle Wrapper
+        run: gradle wrapper --gradle-version 8.5
+
+      - name: Build Debug APK
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        run: ./gradlew assembleDebug
 
       - name: Build Release APK
+        if: startsWith(github.ref, 'refs/tags/v')
         run: ./gradlew assembleRelease
 
+      - name: Upload Debug APK
+        if: "!startsWith(github.ref, 'refs/tags/v')"
+        uses: actions/upload-artifact@v4
+        with:
+          name: PsychTest-debug
+          path: app/build/outputs/apk/debug/*.apk
+
       - name: Sign APK
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: r0adkll/sign-android-release@v1
         id: sign_app
         with:
@@ -39,10 +57,12 @@ jobs:
           BUILD_TOOLS_VERSION: "34.0.0"
 
       - name: Get version name
+        if: startsWith(github.ref, 'refs/tags/v')
         id: version
         run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
       - name: Create Release
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.version.outputs.VERSION }}
@@ -64,7 +84,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload APK as artifact
+      - name: Upload Release APK
+        if: startsWith(github.ref, 'refs/tags/v')
         uses: actions/upload-artifact@v4
         with:
           name: PsychTest-${{ steps.version.outputs.VERSION }}
