@@ -37,6 +37,12 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnTeacher.setOnClickListener { startTest(TestCategory.TEACHER) }
         binding.cardTeacher.setOnClickListener { startTest(TestCategory.TEACHER) }
+
+        binding.btnRelationship.setOnClickListener { startTest(TestCategory.RELATIONSHIP) }
+        binding.cardRelationship.setOnClickListener { startTest(TestCategory.RELATIONSHIP) }
+
+        binding.btnSocialAnxiety.setOnClickListener { startTest(TestCategory.SOCIAL_ANXIETY) }
+        binding.cardSocialAnxiety.setOnClickListener { startTest(TestCategory.SOCIAL_ANXIETY) }
     }
 
     private fun startTest(category: TestCategory) {

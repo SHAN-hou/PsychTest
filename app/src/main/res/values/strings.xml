@@ -6,10 +6,14 @@
     <string name="category_workplace">职场心理测试</string>
     <string name="category_student">学生心理测试</string>
     <string name="category_teacher">教师心理测试</string>
+    <string name="category_relationship">情感关系测试</string>
+    <string name="category_social_anxiety">社交焦虑测试</string>
 
     <string name="category_workplace_desc">评估你的职场压力、人际关系和职业倦怠程度</string>
     <string name="category_student_desc">了解你的学习压力、社交适应和心理健康状况</string>
     <string name="category_teacher_desc">测试你的教学压力、职业满意度和心理状态</string>
+    <string name="category_relationship_desc">评估你的亲密关系质量、依恋风格和情感健康</string>
+    <string name="category_social_anxiety_desc">了解你的社交焦虑程度、社交回避和自信水平</string>
 
     <string name="btn_start_test">开始测试</string>
     <string name="btn_next">下一题</string>
