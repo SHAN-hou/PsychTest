@@ -79,9 +79,10 @@ class ChatActivity : AppCompatActivity() {
 
     private fun initAiChat(category: TestCategory, level: String, score: Int, description: String) {
         aiChatManager = AiChatManager()
-        aiChatManager.initConversation(category, level, score, description)
 
         val welcomeMessage = buildWelcomeMessage(category, level)
+        aiChatManager.initConversation(category, level, score, description, welcomeMessage)
+
         chatAdapter.addMessage(ChatMessage(welcomeMessage, isUser = false))
         scrollToBottom()
     }
