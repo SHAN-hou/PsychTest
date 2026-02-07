@@ -1,0 +1,2 @@
+rootProject.name = 'PsychTest'
+include ':app'

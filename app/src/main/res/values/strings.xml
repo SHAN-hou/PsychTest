@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">心理测试</string>
+    <string name="splash_subtitle">了解自己，从心开始</string>
+
+    <string name="category_workplace">职场心理测试</string>
+    <string name="category_student">学生心理测试</string>
+    <string name="category_teacher">教师心理测试</string>
+
+    <string name="category_workplace_desc">评估你的职场压力、人际关系和职业倦怠程度</string>
+    <string name="category_student_desc">了解你的学习压力、社交适应和心理健康状况</string>
+    <string name="category_teacher_desc">测试你的教学压力、职业满意度和心理状态</string>
+
+    <string name="btn_start_test">开始测试</string>
+    <string name="btn_next">下一题</string>
+    <string name="btn_prev">上一题</string>
+    <string name="btn_submit">提交答案</string>
+    <string name="btn_back_home">返回首页</string>
+    <string name="btn_share">分享结果</string>
+
+    <string name="test_progress">第 %1$d / %2$d 题</string>
+    <string name="result_title">测试结果</string>
+    <string name="result_score">你的得分: %1$d 分</string>
+    <string name="result_level">心理状态: %1$s</string>
+
+    <string name="update_title">发现新版本</string>
+    <string name="update_message">发现新版本 %1$s，是否立即更新？</string>
+    <string name="update_download">立即更新</string>
+    <string name="update_later">稍后再说</string>
+    <string name="update_downloading">正在下载更新...</string>
+    <string name="update_download_complete">下载完成，正在安装...</string>
+    <string name="update_download_failed">下载失败，请检查网络后重试</string>
+
+    <string name="choose_category">请选择测试类型</string>
+    <string name="about">关于</string>
+    <string name="version_info">版本 %1$s</string>
+</resources>
