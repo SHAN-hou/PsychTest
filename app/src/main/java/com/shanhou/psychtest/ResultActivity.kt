@@ -33,7 +33,7 @@ class ResultActivity : AppCompatActivity() {
         val category = TestCategory.valueOf(categoryName)
 
         displayResult(score, maxScore, level, description, suggestion, category)
-        setupButtons()
+        setupButtons(category, level, score, description)
     }
 
     private fun displayResult(
@@ -67,7 +67,17 @@ class ResultActivity : AppCompatActivity() {
         binding.tvScore.setTextColor(getColor(colorRes))
     }
 
-    private fun setupButtons() {
+    private fun setupButtons(category: TestCategory, level: String, score: Int, description: String) {
+        binding.btnAiChat.setOnClickListener {
+            val chatIntent = Intent(this, ChatActivity::class.java).apply {
+                putExtra(ChatActivity.EXTRA_CATEGORY, category.name)
+                putExtra(ChatActivity.EXTRA_LEVEL, level)
+                putExtra(ChatActivity.EXTRA_SCORE, score)
+                putExtra(ChatActivity.EXTRA_DESCRIPTION, description)
+            }
+            startActivity(chatIntent)
+        }
+
         binding.btnBackHome.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK

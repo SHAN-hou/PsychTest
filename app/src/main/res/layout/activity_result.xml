@@ -142,10 +142,21 @@
 
         <!-- Buttons -->
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnBackHome"
+            android:id="@+id/btnAiChat"
             android:layout_width="match_parent"
             android:layout_height="52dp"
             android:layout_marginTop="24dp"
+            android:text="💬 AI 谈心"
+            android:textSize="16sp"
+            app:cornerRadius="12dp"
+            app:backgroundTint="@color/primary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnBackHome"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
             android:text="@string/btn_back_home"
             app:cornerRadius="12dp" />
 
